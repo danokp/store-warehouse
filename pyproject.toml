@@ -1,0 +1,16 @@
+[tool.poetry]
+name = "store-warehouse"
+version = "0.1.0"
+description = ""
+authors = ["Daniil <danokp@mail.ru>"]
+readme = "README.md"
+packages = [{include = "store_warehouse"}]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+django = "^4.2.3"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
