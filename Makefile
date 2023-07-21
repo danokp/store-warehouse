@@ -11,3 +11,4 @@ migrate: makemigrations
 
 createsuperuser:
 	 @$(MANAGE) createsuperuser --noinput --email admin@admin.com
+
