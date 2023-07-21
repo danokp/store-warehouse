@@ -35,6 +35,10 @@ DEBUG = os.getenv('DEBUG', 'true').lower() in {'yes', '1', 'true'}
 ALLOWED_HOSTS = ['*']
 
 
+# Set application mode: store / warehouse
+
+MODE = os.getenv('MODE')
+
 # Application definition
 
 INSTALLED_APPS = [
@@ -44,7 +48,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'rest_framework',
     'store_warehouse.orders',
+    f'store_warehouse.{MODE}',
 ]
 
 MIDDLEWARE = [
