@@ -10,14 +10,9 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
-import os
-import dj_database_url
-
 from pathlib import Path
-from dotenv import load_dotenv
 
-
-load_dotenv()
+from .config import SECRET_KEY, DEBUG, MODE, DATABASE_URL, SESSION_COOKIE_NAME
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -27,17 +22,17 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.getenv('SECRET_KEY')
+SECRET_KEY = SECRET_KEY
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.getenv('DEBUG', 'true').lower() in {'yes', '1', 'true'}
+DEBUG = DEBUG
 
 ALLOWED_HOSTS = ['*']
 
 
 # Set application mode: store / warehouse
 
-MODE = os.getenv('MODE')
+
 
 # Application definition
 
@@ -89,7 +84,7 @@ WSGI_APPLICATION = 'store_warehouse.wsgi.application'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
 DATABASES = {
-    'default': dj_database_url.config(conn_max_age=600),
+    'default': DATABASE_URL,
 }
 
 
@@ -143,4 +138,4 @@ STORAGES = {
 
 STATIC_ROOT = BASE_DIR / "staticfiles"
 
-SESSION_COOKIE_NAME = os.getenv('SESSION_COOKIE_NAME')
+SESSION_COOKIE_NAME = SESSION_COOKIE_NAME
