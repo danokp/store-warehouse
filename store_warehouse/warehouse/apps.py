@@ -6,4 +6,4 @@ class WarehouseConfig(AppConfig):
     name = 'store_warehouse.warehouse'
 
     def ready(self):
-        from . import signals
+        from . import signals  # noqa:F401

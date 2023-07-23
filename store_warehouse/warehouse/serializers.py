@@ -9,7 +9,13 @@ class WarehouseOrderSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = WarehouseOrder
-        fields = ('id', 'order_number', 'status', 'id_in_connected_db', 'prev_status')
+        fields = (
+            'id',
+            'order_number',
+            'status',
+            'id_in_connected_db',
+            'prev_status',
+        )
 
 
 class SwapIDWarehouseOrderSerializer(SwapIDOrderSerializer):
@@ -18,4 +24,9 @@ class SwapIDWarehouseOrderSerializer(SwapIDOrderSerializer):
 
     class Meta:
         model = WarehouseOrder
-        fields = ('order_number', 'status', 'id_in_connected_db', 'prev_status')
+        fields = (
+            'order_number',
+            'status',
+            'id_in_connected_db',
+            'prev_status',
+        )

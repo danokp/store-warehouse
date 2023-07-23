@@ -15,6 +15,6 @@ def update_order_status_in_store(sender, instance, **kwargs):
     if instance.status != instance.prev_status:
         instance.prev_status = instance.status
         requests.put(
-            f'{STORE_WAREHOUSE_SYNC_URL}/store/storeorder/{instance.id_in_connected_db}/',
+            f'{STORE_WAREHOUSE_SYNC_URL}/store/storeorder/{instance.id_in_connected_db}/',  # noqa: E501
             data=SwapIDWarehouseOrderSerializer(instance).data,
         )

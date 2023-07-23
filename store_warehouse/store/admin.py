@@ -12,5 +12,6 @@ class PersonAdmin(admin.ModelAdmin):
         if not obj:
             return ()
 
-        # For existing objects (during editing), return the read-only fields list
+        # For existing objects (during editing),
+        # return the read-only fields list
         return self.readonly_fields

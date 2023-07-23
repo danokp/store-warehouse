@@ -1,8 +1,10 @@
 from django.test import TestCase
-from rest_framework.test import APITestCase
 
 from .models import WarehouseOrder
-from .serializers import WarehouseOrderSerializer, SwapIDWarehouseOrderSerializer
+from .serializers import (
+    WarehouseOrderSerializer,
+    SwapIDWarehouseOrderSerializer,
+)
 
 
 class WarehouseOrderSerializerTestCase(TestCase):
@@ -29,7 +31,9 @@ class WarehouseOrderSerializerTestCase(TestCase):
 
     def test_swap_id_warehouse_order_serializer(self):
 
-        serializer = SwapIDWarehouseOrderSerializer(instance=self.warehouse_order)
+        serializer = SwapIDWarehouseOrderSerializer(
+            instance=self.warehouse_order,
+        )
         expected_data = {
             'order_number': 'ORDER1',
             'status': 'new',

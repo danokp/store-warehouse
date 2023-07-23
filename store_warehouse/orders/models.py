@@ -19,8 +19,7 @@ class Order(models.Model):
     )
 
     def __str__(self):
-        return f'{self.order_number}-{self.status}'
-
+        return f'order: {self.order_number}-{self.status}'
 
     class Meta:
         abstract = True

@@ -18,6 +18,10 @@ whitenoise = "^6.5.0"
 requests = "^2.31.0"
 
 
+[tool.poetry.group.dev.dependencies]
+coverage = "^7.2.7"
+flake8 = "^6.0.0"
+
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"

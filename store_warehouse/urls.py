@@ -37,4 +37,3 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path(f'{MODE}/', include(router.urls)),
 ]
-

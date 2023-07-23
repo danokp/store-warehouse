@@ -30,10 +30,6 @@ DEBUG = DEBUG
 ALLOWED_HOSTS = ['*']
 
 
-# Set application mode: store / warehouse
-
-
-
 # Application definition
 
 INSTALLED_APPS = [

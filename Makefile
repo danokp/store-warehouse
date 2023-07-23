@@ -10,5 +10,7 @@ migrate: makemigrations
 	@$(MANAGE) migrate
 
 createsuperuser:
-	 @$(MANAGE) createsuperuser --noinput --email admin@admin.com
+	@$(MANAGE) createsuperuser --noinput --email admin@admin.com
 
+lint:
+	poetry run flake8 store_warehouse
