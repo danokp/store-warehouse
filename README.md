@@ -1,3 +1,4 @@
+[![Github Actions Status](https://github.com/danokp/store-warehouse/workflows/linter/badge.svg)](https://github.com/danokp/store-warehouse/actions)
 # Store-Warehouse application
 
 Store-Warehouse - a Django (Django Rest Framework) application that can work in two modes: store or warehouse.
