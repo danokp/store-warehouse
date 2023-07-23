@@ -1,5 +1,13 @@
 from django.contrib import admin
-from store_warehouse.warehouse.models import WarehouseOrder
+from .models import WarehouseOrder
 
 
-admin.site.register(WarehouseOrder)
+@admin.register(WarehouseOrder)
+class PersonAdmin(admin.ModelAdmin):
+    fields = ('order_number', 'status')
+    readonly_fields = ('order_number',)
+
+    def has_add_permission(self, request, obj=None):
+        '''Make it impossible to add new Order in Django Admin
+        in Warehouse mode.'''
+        return False
