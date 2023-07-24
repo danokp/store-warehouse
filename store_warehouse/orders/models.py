@@ -1,5 +1,7 @@
 from django.db import models
 
+from store_warehouse.config import MODE
+
 
 class SynchConnection(models.Model):
     '''Model for connection to another client using token.'''
@@ -31,7 +33,11 @@ class Order(models.Model):
         null=True,
     )
 
-    connection = models.ForeignKey(SynchConnection, on_delete=models.PROTECT)
+    connection = models.ForeignKey(
+        SynchConnection,
+        on_delete=models.PROTECT,
+        verbose_name='Warehouse' if MODE == 'store' else 'Store',
+    )
 
     def __str__(self):
         return f'order: {self.order_number}-{self.connection}-{self.status}'

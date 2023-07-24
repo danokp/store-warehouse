@@ -3,9 +3,9 @@ from .models import StoreOrder
 
 
 @admin.register(StoreOrder)
-class PersonAdmin(admin.ModelAdmin):
-    fields = ('order_number', 'status')
-    readonly_fields = ('order_number', 'status')
+class StoreAdmin(admin.ModelAdmin):
+    fields = ('order_number', 'status', 'connection')
+    readonly_fields = ('order_number', 'status', 'connection')
 
     def get_readonly_fields(self, request, obj=None):
         # For new objects (during creation), allow all fields to be editable

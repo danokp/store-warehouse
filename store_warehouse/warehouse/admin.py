@@ -3,7 +3,7 @@ from .models import WarehouseOrder
 
 
 @admin.register(WarehouseOrder)
-class PersonAdmin(admin.ModelAdmin):
+class WarehouseAdmin(admin.ModelAdmin):
     fields = ('order_number', 'status')
     readonly_fields = ('order_number',)
 
