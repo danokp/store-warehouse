@@ -40,8 +40,10 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
+    'rest_framework.authtoken',
     'store_warehouse.orders',
     f'store_warehouse.{MODE}',
+    'store_warehouse.client',
 ]
 
 MIDDLEWARE = [
@@ -135,3 +137,10 @@ STORAGES = {
 STATIC_ROOT = BASE_DIR / "staticfiles"
 
 SESSION_COOKIE_NAME = SESSION_COOKIE_NAME
+
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.TokenAuthentication',
+    ]
+}
