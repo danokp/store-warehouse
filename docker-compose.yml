@@ -25,36 +25,62 @@ services:
     env_file:
       - .env.store
     command: sh -c "poetry run python manage.py migrate
-                    && poetry run python3 manage.py createsuperuser --noinput --email admin@admin.com
                     && poetry run gunicorn -w 5 -b 0.0.0.0:8001 store_warehouse.wsgi"
 
-  database_warehouse:
+  database_warehouse1:
     image: postgres:15
-    container_name: database_warehouse
+    container_name: database_warehouse1
     volumes:
-      - postgres_data_warehouse:/var/lib/postgresql/data/
+      - postgres_data_warehouse1:/var/lib/postgresql/data/
     environment:
       POSTGRES_HOST_AUTH_METHOD: trust
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
-      POSTGRES_DB: db_warehouse
-  warehouse:
+      POSTGRES_DB: db_warehouse1
+  warehouse1:
     build:
       dockerfile: Dockerfile
       context: .
-    container_name: warehouse
+    container_name: warehouse1
     depends_on:
-      - database_warehouse
+      - database_warehouse1
     ports:
       - '8002:8002'
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
     env_file:
-      - .env.warehouse
+      - .env.warehouse1
     command: sh -c "poetry run python manage.py migrate
-                    && poetry run python3 manage.py createsuperuser --noinput --email admin@admin.com
                     && poetry run gunicorn -w 5 -b 0.0.0.0:8002 store_warehouse.wsgi"
+
+  database_warehouse2:
+    image: postgres:15
+    container_name: database_warehouse2
+    volumes:
+      - postgres_data_warehouse2:/var/lib/postgresql/data/
+    environment:
+      POSTGRES_HOST_AUTH_METHOD: trust
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: db_warehouse2
+  warehouse2:
+    build:
+      dockerfile: Dockerfile
+      context: .
+    container_name: warehouse2
+    depends_on:
+      - database_warehouse2
+    ports:
+      - '8003:8003'
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    env_file:
+      - .env.warehouse2
+    command: sh -c "poetry run python manage.py migrate
+                    && poetry run gunicorn -w 5 -b 0.0.0.0:8003 store_warehouse.wsgi"
+
 
 volumes:
   postgres_data_store:
-  postgres_data_warehouse:
+  postgres_data_warehouse1:
+  postgres_data_warehouse2:
