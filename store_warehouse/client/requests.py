@@ -8,6 +8,5 @@ def synchronize_databases(http_method, url, token, data):
         'post': requests.post,
     }
 
-    headers = {'Authorization': token}
-
+    headers = {'Authorization': f'Token {token}'}
     return http_method_dict[http_method](url, headers=headers, data=data)
