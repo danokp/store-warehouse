@@ -2,10 +2,12 @@ from rest_framework import serializers
 
 from .models import WarehouseOrder
 from store_warehouse.orders.serializers import SwapIDOrderSerializer
+from store_warehouse.orders.models import SynchConnection
 
 
 class WarehouseOrderSerializer(serializers.ModelSerializer):
     '''Serializer used for WarehouseOrder CRUD depicting'''
+    connection = serializers.CharField()
 
     class Meta:
         model = WarehouseOrder
@@ -15,6 +17,7 @@ class WarehouseOrderSerializer(serializers.ModelSerializer):
             'status',
             'id_in_connected_db',
             'prev_status',
+            'connection',
         )
 
 

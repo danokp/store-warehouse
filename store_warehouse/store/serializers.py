@@ -15,7 +15,14 @@ class StoreOrderSerializer(serializers.ModelSerializer):
 class SwapIDStoreOrderSerializer(SwapIDOrderSerializer):
     '''Serialized used for synchronization with Warehouse. It swaps id and
     id_in_connected_db in order to get write request.'''
+    connection = serializers.CharField()
 
     class Meta:
         model = StoreOrder
-        fields = ('order_number', 'status', 'id_in_connected_db', 'prev_status')
+        fields = (
+            'order_number',
+            'status',
+            'id_in_connected_db',
+            'prev_status',
+            'connection',
+        )
