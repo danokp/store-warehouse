@@ -7,7 +7,7 @@ class SynchConnection(models.Model):
     '''Model for connection to another client using token.'''
 
     name = models.CharField(max_length=255, unique=True)
-    link = models.URLField(max_length=100, unique=True)
+    url = models.CharField(max_length=100, unique=True)
     token = models.CharField(max_length=255)
 
     def __str__(self):
