@@ -1,5 +1,6 @@
 import requests
 
+
 def synchronize_databases(http_method, url, token, data):
     '''Send request to connected client to synchronize databases.'''
 

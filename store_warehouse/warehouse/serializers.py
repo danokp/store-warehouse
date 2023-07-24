@@ -2,7 +2,6 @@ from rest_framework import serializers
 
 from .models import WarehouseOrder
 from store_warehouse.orders.serializers import SwapIDOrderSerializer
-from store_warehouse.orders.models import SynchConnection
 
 
 class WarehouseOrderSerializer(serializers.ModelSerializer):
